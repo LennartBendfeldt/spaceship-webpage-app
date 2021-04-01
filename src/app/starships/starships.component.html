@@ -1,0 +1,22 @@
+<h2>Starships</h2>
+<ul class="starships">
+    <li *ngFor="let starship of starships" 
+    [class.selected]="starship === selectedStarship"
+    (click)="onSelect(starship)">
+        <span class="badge">{{starship.id}}</span>
+        {{starship.name}} | 
+        <i>{{starship.commander}}</i>
+    </li>
+</ul>
+
+<div *ngIf="selectedStarship">
+
+    <h2>{{selectedStarship.name}} Details</h2>
+    <div><span>id: </span>{{selectedStarship.id}}</div>
+    <div>
+      <label>commander:
+        <input [(ngModel)]="selectedStarship.commander" placeholder="commander"/>
+      </label>
+    </div>
+  
+</div>
